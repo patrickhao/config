@@ -1,6 +1,9 @@
 call plug#begin('~/.vim/plugged')
 "dress
 Plug 'bling/vim-bufferline'
+Plug 'joshdick/onedark.vim'
+Plug 'morhetz/gruvbox'
+Plug 'altercation/vim-colors-solarized'
 "vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -53,7 +56,6 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 "test point
 "dress
 "wait area
-Plug 'ajmwagar/vim-deus'
 call plug#end()
 
 "neovim
@@ -91,6 +93,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 "coc
 " use <tab> for trigger completion and navigate to the next complete item
+set signcolumn=yes
 function! s:check_back_space() abort
 	let col = col('.') - 1
 	return !col || getline('.')[col - 1]  =~ '\s'
@@ -182,8 +185,7 @@ let g:terminal_color_13 = '#FF92D0'
 let g:terminal_color_14 = '#9AEDFE'
 set termguicolors
 let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-color deus
-hi NonText ctermfg=gray guifg=grey10
+colorscheme gruvbox
+set background=dark
+"hi NonText ctermfg=gray guifg=grey10
 "end
-
-
