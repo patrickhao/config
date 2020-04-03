@@ -4,6 +4,7 @@ Plug 'bling/vim-bufferline'
 Plug 'joshdick/onedark.vim'
 Plug 'morhetz/gruvbox'
 Plug 'altercation/vim-colors-solarized'
+Plug 'dracula/vim',{'as':'dracula'}
 "vim-airline
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -166,7 +167,7 @@ let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 let g:bookmark_location_list = 1
 "end
-
 colorscheme gruvbox
 set background=dark
+hi SignColumn ctermbg=NONE guibg=NONE
 "end
