@@ -89,6 +89,9 @@ let g:rainbow_active = 1
 
 "nerd-tree
 map <C-f> :NERDTreeToggle<CR>
+"let g:nerdtree_tabs_open_on_console_startup=1
+"let NERDTreeShowHidden = 1
+let NERDTreeWinSize = 18
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 "end
 
@@ -167,7 +170,11 @@ let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 let g:bookmark_location_list = 1
 "end
-colorscheme gruvbox
-set background=dark
-hi SignColumn ctermbg=NONE guibg=NONE
+"let g:gruvbox_sign_column = 'bg0'
+"colorscheme gruvbox
+"set background=dark
+hi SignColumn ctermbg=NONE
+hi LineNr ctermfg=grey
+hi Pmenu ctermbg=blue
+hi comment ctermfg=grey
 "end
