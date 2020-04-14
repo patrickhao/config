@@ -59,9 +59,15 @@ Plug 'suan/vim-instant-markdown', {'for': 'markdown'}
 "wait area
 call plug#end()
 
-"neovim
+"vim
 set number
+set autoindent
 syntax on
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+map <F9> :set paste<CR>
+map <F10> :set nopaste<CR>
 "end
 
 "F5 to compile and run
@@ -73,6 +79,9 @@ func! CompileRunGcc()
 		exec "! ./%<"
 	elseif &filetype=='markdown'
 		exec "InstantMarkdownPreview"
+	elseif &filetype=='python'
+		exec "!clear"
+		exec "!python3 %"
 	endif
 endfunc
 "end
@@ -170,6 +179,7 @@ let g:bookmark_center = 1
 let g:bookmark_auto_close = 1
 let g:bookmark_location_list = 1
 "end
+
 "let g:gruvbox_sign_column = 'bg0'
 "colorscheme gruvbox
 "set background=dark
