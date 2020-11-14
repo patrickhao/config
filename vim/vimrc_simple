@@ -1,0 +1,65 @@
+"info: simply vim configuration for algorithm
+call plug#begin('~/.vim/plugged')
+"vim-airline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+"start-page
+Plug 'mhinz/vim-startify'
+
+"editor enhancement
+"auto-pair
+Plug 'jiangmiao/auto-pairs'
+"auto completer
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+call plug#end()
+
+"vim
+set number
+set autoindent
+syntax on
+set tabstop=4
+set shiftwidth=4
+set softtabstop=4
+map <F9> :set paste<CR>
+map <F10> :set nopaste<CR>
+hi SignColumn ctermbg=NONE
+"end
+
+"F5 to compile and run
+map <F5> :call CompileRunGcc()<CR>
+func! CompileRunGcc()
+	exec "w"
+	if &filetype=='c'
+		exec "!gcc % -o %<"
+		exec "! ./%<"
+	elseif &filetype=='cpp'
+		exec "!g++ % -o %<"
+		exec "! ./%<"
+	elseif &filetype=='markdown'
+		exec "InstantMarkdownPreview"
+	elseif &filetype=='python'
+		exec "!clear"
+		exec "!python3 %"
+	endif
+endfunc
+"end
+
+"vim-airline
+"let g:airline#extensions#tabline#enabled = 1
+let g:airline_theme="bubblegum"
+nmap <tab> :bn<cr>
+"end
+
+"coc
+" use <tab> for trigger completion and navigate to the next complete item
+set signcolumn=yes
+function! s:check_back_space() abort
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<Tab>" :
+			\ coc#refresh()
+"end
