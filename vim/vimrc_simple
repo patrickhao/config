@@ -1,8 +1,5 @@
 "info: simply vim configuration for algorithm
 call plug#begin('~/.vim/plugged')
-"vim-airline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 "start-page
 Plug 'mhinz/vim-startify'
 
@@ -16,6 +13,8 @@ call plug#end()
 "vim
 set number
 set autoindent
+set relativenumber
+set laststatus=0
 syntax on
 set tabstop=4
 set shiftwidth=4
@@ -23,6 +22,7 @@ set softtabstop=4
 map <F9> :set paste<CR>
 map <F10> :set nopaste<CR>
 hi SignColumn ctermbg=NONE
+hi LineNr ctermfg=grey
 "end
 
 "F5 to compile and run
