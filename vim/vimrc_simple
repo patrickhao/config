@@ -23,6 +23,7 @@ map <F9> :set paste<CR>
 map <F10> :set nopaste<CR>
 hi SignColumn ctermbg=NONE
 hi LineNr ctermfg=grey
+hi Pmenu ctermbg=blue
 "end
 
 "F5 to compile and run
