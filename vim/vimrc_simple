@@ -1,15 +1,4 @@
 "info: simply vim configuration for algorithm
-call plug#begin('~/.vim/plugged')
-"start-page
-Plug 'mhinz/vim-startify'
-
-"editor enhancement
-"auto-pair
-Plug 'jiangmiao/auto-pairs'
-"auto completer
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-call plug#end()
-
 "vim
 set autoindent
 set relativenumber
@@ -23,6 +12,12 @@ map <F10> :set nopaste<CR>
 hi SignColumn ctermbg=NONE
 hi LineNr ctermfg=grey
 hi Pmenu ctermbg=blue
+inoremap ( ()<ESC>i
+inoremap [ []<ESC>i
+inoremap { {}<ESC>i
+inoremap < <><ESC>i
+inoremap ' ''<ESC>i
+inoremap " ""<ESC>i
 "end
 
 "F5 to compile and run
@@ -42,24 +37,4 @@ func! CompileRunGcc()
 		exec "!python3 %"
 	endif
 endfunc
-"end
-
-"vim-airline
-"let g:airline#extensions#tabline#enabled = 1
-let g:airline_theme="bubblegum"
-nmap <tab> :bn<cr>
-"end
-
-"coc
-" use <tab> for trigger completion and navigate to the next complete item
-set signcolumn=yes
-function! s:check_back_space() abort
-	let col = col('.') - 1
-	return !col || getline('.')[col - 1]  =~ '\s'
-endfunction
-
-inoremap <silent><expr> <Tab>
-			\ pumvisible() ? "\<C-n>" :
-			\ <SID>check_back_space() ? "\<Tab>" :
-			\ coc#refresh()
 "end
