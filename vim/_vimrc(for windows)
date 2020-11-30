@@ -50,6 +50,7 @@ endfunction
 "info: simply vim configuration for algorithm
 "vim
 syntax on
+set number
 set cindent
 set relativenumber
 set autochdir
